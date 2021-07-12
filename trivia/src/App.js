@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import './App.css'
+import axios from 'axios'
 
-function App() {
+function App () {
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    axios.get('https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple')
+      .then(res => setCategories(res.data))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="App">
+        <h1>Trivia</h1>
+      </div>
+      <div>
+        <h1>Categories:</h1>
+        {categories.map(category => {
+          return (
+            <div key={category.slug}>
+              <p>{category.Category}</p>
+            </div>
+          )
+        })}
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
