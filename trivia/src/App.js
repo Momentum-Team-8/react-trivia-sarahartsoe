@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 import axios from 'axios'
+import { getCategoryList } from './api'
 
 function App () {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    axios.get('https://opentdb.com/api_category.php')
-      .then(res => setCategories(res.data.trivia_categories))
+    getCategoryList().then((categories) => setCategories(categories))
   }, [])
 
   return (
