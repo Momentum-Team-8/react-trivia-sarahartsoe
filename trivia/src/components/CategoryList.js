@@ -9,7 +9,7 @@ export const CategoryList = (props) => {
           <div key={category.id} class="card" class="tile is-parent is-6">                
             <p class="card-content" class="title has-text-centered tile is-child box">{category.name}
               <br></br>
-              <a class="button is-primary is-outlined">Play</a></p>
+              <button class="button is-primary is-outlined">Play</button></p>
           </div>
         )
       })}

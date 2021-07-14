@@ -5,7 +5,7 @@ export function getCategoryList () {
     .then(res => res.data.trivia_categories)
 }
 
-// export function getQuestions (country) {
-//     return axios.get(`https://opentdb.com/api.php?amount=10&${category}&type=multiple`)
-//       .then(res => res.data.results)
-//   }
+export function getQuestions (category) {
+    return axios.get(`https://opentdb.com/api.php?amount=10&category=${category}&type=multiple`)
+      .then(res => res.data.results)
+  }
