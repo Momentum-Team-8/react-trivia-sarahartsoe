@@ -15,9 +15,11 @@ function App () {
   return (
     <div>
       <Header />
-      <h1>   Categories:</h1>
       <section>
-        <CategoryList categories={categories} setSelectedCategory={setSelectedCategory} />
+       {selectedCategory
+         ? <Questions selectedCategory={selectedCategory} />
+          : <CategoryList categories={categories} setSelectedCategory={setSelectedCategory} />
+             }
       </section>
     </div>
   )

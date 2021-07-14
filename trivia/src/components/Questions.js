@@ -24,7 +24,7 @@ export const Questions = (props) => {
           >
             Back to all Categories
           </button>
-          <h2>{selectedCategory}</h2>
+          <h2>{selectedCategory.name}</h2>
         </div>
         {questions.map((data) => {
           return (
