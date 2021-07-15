@@ -36,6 +36,10 @@ export const Questions = (props) => {
                 <div key={data.question} class="tile is-child box">
                   <p>{he.decode(data.question)}</p>
                   <p>Select your answer:</p>
+                  <div>
+                    <input type="radio" value="Other" name="guess" /> {data.incorrect_answers}
+                    <input type="radio" value="Other" name="guess" /> {data.correct_answer}
+                  </div>
                   {expanded ? 'Hide Answer' : 'Show Answer'}
                   <button onClick={handleExpanded} class="card-header-icon" aria-label="more options">
                     <span class="icon">
